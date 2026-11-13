@@ -1,0 +1,80 @@
+:root{--p2m-duration:3000ms;--p2m-ease-enter:cubic-bezier(.34,0,.14,1);--p2m-ease-settle:cubic-bezier(.22,1,.36,1)}
+/* All actors share a single 3000ms clock. Literal segment easing is deliberate. */
+#scene,#badge,#character,#hat,#wordmark,#leaf,#star-left,#star-right,#landing-leaf,#motes,#halo,#final-logo{animation-duration:var(--p2m-duration);animation-fill-mode:both;animation-timing-function:linear;transform-box:view-box}
+#badge{transform-origin:620px 648px;animation-name:badge-enter}
+#character{transform-origin:620px 670px;animation-name:character-enter}
+#hat{transform-origin:730px 210px;animation-name:hat-enter}
+#wordmark{transform-origin:618px 960px;animation-name:wordmark-enter}
+#leaf{transform-origin:955px 1045px;animation-name:leaf-enter}
+#star-left{transform-origin:160px 571px;animation-name:star-left-enter}
+#star-right{transform-origin:1077px 729px;animation-name:star-right-enter}
+#landing-leaf{animation-name:falling-leaf}
+#halo{animation-name:halo-bloom}
+#motes{transform-origin:627px 627px;animation-name:motes-gather}
+#scene{animation-name:scene-finish}
+#final-logo{animation-name:final-resolve}
+@keyframes badge-enter{
+ 0%,18%{opacity:0;transform:translateY(25px) scale(.78);animation-timing-function:cubic-bezier(.34,0,.14,1)}
+ 37%{opacity:1;transform:translateY(-4px) scale(1.012);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 53%,100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes character-enter{
+ 0%,25%{opacity:0;transform:translateY(35px);animation-timing-function:cubic-bezier(.16,1,.3,1)}
+ 45%{opacity:1;transform:translateY(-5px);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 62%,100%{opacity:1;transform:translateY(0)}
+}
+@keyframes hat-enter{
+ 0%,30%{opacity:0;transform:translate(0,-20px) rotate(-3deg);animation-timing-function:cubic-bezier(.34,0,.14,1)}
+ 48%{opacity:1;transform:translate(0,3px) rotate(.6deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 67%,100%{opacity:1;transform:translate(0,0) rotate(0deg)}
+}
+@keyframes wordmark-enter{
+ 0%,37%{opacity:0;transform:translateY(39px) scale(.96);animation-timing-function:cubic-bezier(.16,1,.3,1)}
+ 54%{opacity:1;transform:translateY(-6px) scale(1.018);animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 63%{transform:translateY(2px) scale(.996);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 74%,100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes leaf-enter{
+ 0%,45%{opacity:0;transform:rotate(-13deg) translateY(8px);animation-timing-function:cubic-bezier(.16,1,.3,1)}
+ 59%{opacity:1;transform:rotate(5deg) translateY(0);animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 69%{transform:rotate(-2deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 83%,100%{opacity:1;transform:rotate(0deg)}
+}
+@keyframes star-left-enter{
+ 0%,50%{opacity:0;transform:scale(.4) rotate(-12deg);animation-timing-function:cubic-bezier(.16,1,.3,1)}
+ 63%{opacity:1;transform:scale(1.2) rotate(5deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 79%,100%{opacity:1;transform:scale(1) rotate(0deg)}
+}
+@keyframes star-right-enter{
+ 0%,58%{opacity:0;transform:scale(.4) rotate(12deg);animation-timing-function:cubic-bezier(.16,1,.3,1)}
+ 72%{opacity:1;transform:scale(1.16) rotate(-4deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 86%,100%{opacity:1;transform:scale(1) rotate(0deg)}
+}
+@keyframes falling-leaf{
+ 0%{opacity:0;transform:translate(405px,30px) rotate(-45deg);animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 7%{opacity:1;transform:translate(455px,85px) rotate(-15deg);animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 17%{opacity:1;transform:translate(660px,155px) rotate(35deg);animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 29%{opacity:.8;transform:translate(725px,265px) rotate(75deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 39%,100%{opacity:0;transform:translate(680px,350px) rotate(120deg)}
+}
+@keyframes motes-gather{
+ 0%,6%{opacity:0;transform:scale(1.16) rotate(-5deg);animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 19%{opacity:.75;transform:scale(1.05) rotate(0deg);animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 45%{opacity:.4;transform:scale(.96) rotate(4deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 75%,100%{opacity:0;transform:scale(.9) rotate(7deg)}
+}
+@keyframes halo-bloom{
+ 0%,12%{opacity:0;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+ 36%{opacity:.8;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 73%,100%{opacity:0}
+}
+/* Resolve constructed underpaint to exact original while all actors settle. */
+@keyframes final-resolve{0%,84%{opacity:0;animation-timing-function:cubic-bezier(.4,0,.2,1)}97%,100%{opacity:1}}
+@keyframes scene-finish{0%,97%{opacity:1}98%,100%{opacity:0}}
+
+/* The welcome line joins the shared clock; replay, seeking and speed stay in sync. */
+#brand-message{animation:message-reveal var(--p2m-duration) linear both}
+@keyframes message-reveal{
+ 0%,60%{opacity:0;transform:translateY(12px);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+ 90%,100%{opacity:1;transform:translateY(0)}
+}

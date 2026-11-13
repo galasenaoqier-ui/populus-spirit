@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>胡杨精灵 POPULUS SPIRIT · 额济纳旗胡杨节限定数字文创</title>
+  <link rel="stylesheet" href="./logo-intro/dialog.css">
   <script type="module" src="./model-viewer.min.js"></script>
   <style>
     :root {
@@ -81,6 +82,12 @@
   </style>
 </head>
 <body>
+  <dialog id="site-intro" aria-labelledby="introTitle" aria-describedby="introMessage">
+    <h2 id="introTitle" class="intro-sr-only">欢迎来到胡杨精灵展馆</h2>
+    <p id="introMessage" class="intro-sr-only">三千年的等候只为等候你的到来</p>
+    <button type="button" id="skipIntro" aria-label="跳过开场，进入展馆">跳过开场 <span aria-hidden="true">→</span></button>
+  </dialog>
+  <script src="./logo-intro/entry.js"></script>
 
   <!-- 全屏金色胡杨落叶与流沙光斑 Canvas -->
   <canvas id="leafCanvas"></canvas>
@@ -363,8 +370,9 @@
 
     </section>
     <footer class="footer-note">
-      POPULUS SPIRIT · 额济纳旗胡杨节文创手办数字档案<br/>
-      三千年守望 · 一叶一世界，一生一片金
+      <div>POPULUS SPIRIT · 额济纳旗胡杨节文创手办数字档案<br/>
+      三千年守望 · 一叶一世界，一生一片金</div>
+      <button type="button" id="replayIntro">重看开场</button>
     </footer>
 
   </main>
