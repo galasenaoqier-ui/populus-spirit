@@ -2,6 +2,10 @@
 
 额济纳旗胡杨节主题的互动文创展馆，使用原生 HTML、CSS、JavaScript 与本地 model-viewer。
 
+在线展馆：https://galasenaoqier-ui.github.io/populus-spirit/
+
+`qr-code/` 中的焦糖棕二维码直接打开在线展馆。
+
 ## 本地预览
 
 在项目文件夹运行：
